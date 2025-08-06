@@ -1,56 +1,74 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-/ {
-        keymap {
-                compatible = "zmk,keymap";
+#define &ctrlesc &mt LCTRL ESC
+#define &guitab  &mt LGUI TAB
+#define &mo2ret  &lt 2 RET
+#define &mo1spc  &lt 1 SPACE
+#define &altbspc &mt LALT BSPC
+#define &shftgrv &mt LSHFT GRAVE
 
-                default_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
-                        >;
-                };
-                lower_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
-                        >;
-                };
+/****************************************************************************************
+/ L0 (dvorak)                                 L5 (stenography)                          /
+/ ==================== ====================   ==================== ==================== /
+/  '   ,   .   P   Y     F   G   C   R   L    ...  #   T   P   H    F   P   L   T   D   /
+/  A   O   E   U   I     D   H   T   N   S    ...  S   K   W   R    R   B   G   S   Z   /
+/  ;   Q   J   K   X     B   M   W   V   Z    ... ...  *   *   *    *   *   *  ... ...  /
+/         ESC TAB RET   SPC BKS                        A   O  LV0   *   E   U           /
+/         CTL GUI MO2   MO1 ALT SHF                                                     /
+/                                                                                       /
+/ L1 (numbers + navigation + symbols)         L2 (function)                             /
+/ ==================== ====================   ==================== ==================== /
+/  `   7   8   9   -    HOM PGD PGU END MO3   MO4 F7  F8  F9  F12   MUT VDN VUP INS LV5 /
+/  \   4   5   6   =    LFT DWN UP  RHT  /    PRN F4  F5  F6  F11   BTC BT4 BT5 DEL MEN /
+/ CTL  1   2   3  SHF    (   )   [   ]  SHF   CTL F1  F2  F3  F10   CTL BT1 BT2 BT3 SHF /
+/          0  ~~~ RET   @@@ ~~~ ~~~                   ~~~ ~~~ @@@   SPC ~~~ ~~~         /
+/
+/ L3 / L4 (not implemented yet)
+****************************************************************************************/
 
-                raise_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
-                        >;
-                };
-        };
+/ { keymap { compatible = "zmk,keymap";
+    L0 { display-name = "base"; bindings = <
+      &none     &kp APOS  &kp COMMA &kp DOT   &kp P     &kp Y       &kp F     &kp G     &kp C     &kp R     &kp L     &none
+      &none     &kp A     &kp O     &kp E     &kp U     &kp I       &kp D     &kp H     &kp T     &kp N     &kp S     &none
+      &none     &kp SEMI  &kp Q     &kp J     &kp K     &kp X       &kp B     &kp M     &kp W     &kp V     &kp Z     &none
+                                    &ctrlesc  &guitab   &mo2ret     &mo1spc   &altbspc  &kp LSHFT
+    >; };
+    L1 { display-name = "num"; bindings = <
+      &none     &kp GRAVE &kp N7    &kp N8    &kp N9    &kp MINUS   &kp HOME  &kp PG_DN &kp PG_UP &kp END   &mo 3     &none
+      &none     &kp BSLH  &kp N4    &kp N5    &kp N6    &kp EQUAL   &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp SLASH &none
+      &none     &kp LCTRL &kp N1    &kp N2    &kp N3    &kp LSHFT   &kp LPAR  &kp RPAR  &kp LBKT  &kp RBKT  &kp RSHFT &none
+                                    &kp N0    &trans    &kp RET     &trans    &trans    &trans
+    >; };
+    L2 { display-name = "fn"; bindings = <
+      &none     &none     &kp F7    &kp F8    &kp F9    &kp F12     &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP &kp INS       &to 3         &none
+      &none     &kp PSCRN &kp F4    &kp F5    &kp F6    &kp F11     &bt BT_CLR   &bt BT_SEL 4 &bt BT_SEL 5 &kp DEL       &kp K_APP     &none
+      &none     &kp LCTRL &kp F1    &kp F2    &kp F3    &kp F10     &kp RCTL     &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &kp LSHFT     &none
+                                    &kp F0    &trans    &trans      &kp SPACE    &trans       &trans
+    >; };
+    L3 { display-name = "steno"; bindings = <
+      &none     &none     &kp HASH  &kp T     &kp P     &kp H       &kp F       &kp P     &kp L     &kp T   &kp D     &none
+      &none     &none     &kp S     &kp K     &kp W     &kp R       &kp R       &kp B     &kp G     &kp S   &kp Z     &none
+      &none     &none     &none     &kp STAR  &kp STAR  &kp STAR    &kp STAR    &kp STAR  &kp STAR  &none   &none     &none
+                                    &kp A     &kp O     &to 0       &kp STAR    &kp E     &kp U
+    >; };
+    /* TODO: move above L3 -> L5 (and &to 3 -> &to 5 in L2 map) and fill in L3/L4 below as needed
+    L3 { display-name = "todo1"; bindings = <
+      &none     &none     &none     &none     &none     &none       &none     &none     &none     &none     &none     &none
+      &none     &none     &none     &none     &none     &none       &none     &none     &none     &none     &none     &none
+      &none     &none     &none     &none     &none     &none       &none     &none     &none     &none     &none     &none
+                                    &none     &none     &none       &none     &none     &none
+    >; };
+    L4 { display-name = "todo2"; bindings = <
+      &none     &none     &none     &none     &none     &none       &none     &none     &none     &none     &none     &none
+      &none     &none     &none     &none     &none     &none       &none     &none     &none     &none     &none     &none
+      &none     &none     &none     &none     &none     &none       &none     &none     &none     &none     &none     &none
+                                    &none     &none     &none       &none     &none     &none
+    >; };
+    //*/
+  };
 };
+
+/* vim: set list tw=140: */
