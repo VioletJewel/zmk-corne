@@ -4,11 +4,8 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define CTRLESC &mt LCTRL ESC
-#define GUITAB  &mt LGUI TAB
 #define MO2RET  &lt 2 RET
 #define MO1SPC  &lt 1 SPACE
-#define ALTBSPC &mt LALT BSPC
-#define SHFTGRV &mt LSHFT GRAVE
 
 /****************************************************************************************
 / L0 (dvorak)                                 L5 (stenography)                          /
@@ -16,8 +13,8 @@
 /  '   ,   .   P   Y     F   G   C   R   L    ...  #   T   P   H    F   P   L   T   D   /
 /  A   O   E   U   I     D   H   T   N   S    ...  S   K   W   R    R   B   G   S   Z   /
 /  ;   Q   J   K   X     B   M   W   V   Z    ... ...  *   *   *    *   *   *  ... ...  /
-/         ESC TAB RET   SPC BKS                        A   O  LV0   *   E   U           /
-/         CTL GUI MO2   MO1 ALT SHF                                                     /
+/         ESC TAB RET   SPC     BKS                    A   O  LV0   *   E   U           /
+/         CTL GUI MO2   MO1 SHF ALT                                                     /
 /                                                                                       /
 / L1 (numbers + navigation + symbols)         L2 (function)                             /
 / ==================== ====================   ==================== ==================== /
@@ -31,11 +28,17 @@
 
 / {
   behaviors {
-    td_lgtab: tap_dance_mod_tap {
+    td_lgtab: tap_dance_lg_tab {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       tapping-term-ms = <200>;
-      bindings = <GUITAB>, <&kp LG(TAB)>;
+      bindings = <&mt LGUI TAB>, <&kp LG(TAB)>, <&kp TAB>;
+    };
+    td_altbk: tap_dance_alt_bkspc {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&mt LALT BSPC>, <&kp BSPC>;
     };
   };
   keymap {
@@ -44,7 +47,7 @@
       &none     &kp APOS  &kp COMMA &kp DOT   &kp P     &kp Y       &kp F     &kp G     &kp C     &kp R     &kp L     &none
       &none     &kp A     &kp O     &kp E     &kp U     &kp I       &kp D     &kp H     &kp T     &kp N     &kp S     &none
       &none     &kp SEMI  &kp Q     &kp J     &kp K     &kp X       &kp B     &kp M     &kp W     &kp V     &kp Z     &none
-                                    CTRLESC   &td_lgtab MO2RET      MO1SPC    ALTBSPC   &kp LSHFT
+                                    CTRLESC   &td_lgtab MO2RET      MO1SPC    &kp LSHFT &td_altbk
     >; };
     L1 { display-name = "num"; bindings = <
       &none     &kp GRAVE &kp N7    &kp N8    &kp N9    &kp MINUS   &kp HOME  &kp PG_DN &kp PG_UP &kp END   &mo 3     &none
