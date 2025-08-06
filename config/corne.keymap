@@ -43,9 +43,10 @@
                                     &kp N0    &trans    &kp RET     &trans    &trans    &trans
     >; };
     L2 { display-name = "fn"; bindings = <
-      &none     &none     &kp F7    &kp F8    &kp F9    &kp F12     &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP &kp INS       &to 3         &none &none     &kp PSCRN &kp F4    &kp F5    &kp F6    &kp F11     &bt BT_CLR   &bt BT_SEL 4 &bt BT_SEL 5 &kp DEL       &kp K_APP     &none
+      &none     &none     &kp F7    &kp F8    &kp F9    &kp F12     &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP &kp INS       &to 3         &none
+      &none     &kp PSCRN &kp F4    &kp F5    &kp F6    &kp F11     &bt BT_CLR   &bt BT_SEL 4 &bt BT_SEL 5 &kp DEL       &kp K_APP     &none
       &none     &kp LCTRL &kp F1    &kp F2    &kp F3    &kp F10     &kp RCTL     &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &kp LSHFT     &none
-                                    &kp F0    &trans    &trans      &kp SPACE    &trans       &trans
+                                    &trans    &trans    &trans      &kp SPACE    &trans       &trans
     >; };
     L3 { display-name = "steno"; bindings = <
       &none     &none     &kp HASH  &kp T     &kp P     &kp H       &kp F       &kp P     &kp L     &kp T   &kp D     &none
