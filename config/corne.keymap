@@ -93,7 +93,7 @@
 
 / {
   behaviors {
-    mtog: behavior_mo_tog {
+    mo_tog: behavior_mo_tog {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
       flavor = "hold-preferred";
