@@ -109,7 +109,7 @@
       tapping-term-ms = <170>;
       quick-tap-ms = <100>;
       bindings = <&kp>, <&kp>;
-      hold-trigger-key-positions = < RKEYS >;
+      hold-trigger-key-positions = <RKEYS>;
       hold-trigger-on-release;
     };
     hmr: home_row_mod_right {
@@ -120,7 +120,7 @@
       tapping-term-ms = <170>;
       quick-tap-ms = <100>;
       bindings = <&kp>, <&kp>;
-      hold-trigger-key-positions = < LKEYS >;
+      hold-trigger-key-positions = <LKEYS>;
       hold-trigger-on-release;
     };
 
