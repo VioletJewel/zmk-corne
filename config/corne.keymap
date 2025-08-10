@@ -189,7 +189,7 @@
       bindings = <&kp F6>, <&bt BT_CLR>;
       mods = <(MOD_LGUI)>;
     };
-    F7BTN: morph_F7_BTN {
+    F7BTP: morph_F7_BTP {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&kp F7>, <&bt BT_PRV>;
