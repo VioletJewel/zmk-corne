@@ -12,7 +12,7 @@
 │ ; : │ q Q │ j J │ k K │ x X │ │ b B │ m M │ w W │ v V │ z Z │
 │     │     │     │     │     │ │     │     │     │     │     │
 ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
-            │ ESC │SPACE│ TAB │ │ RET │BSPC │ / ? │
+            │ ESC │BSPC │ TAB │ │ RET │SPACE│ / ? │
             │     │ NAV │ FN  │ │ NUM │     │     │
             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
 ╭─────┬─────┬─────┬─────┬────L1:NUM───┬─────┬─────┬─────┬─────╮
@@ -81,6 +81,7 @@
 #define STN  4
 
 #define NAV_SPACE &ltb NAV SPACE
+#define NAV_BSPC  &ltb NAV SPACE
 // #define NUM_TAB   &ltb NUM TAB
 #define FN_TAB    &ltb FN  TAB
 #define NUM_RET   &ltb NUM RET
@@ -209,7 +210,7 @@
       NOP  &kp APOS   &kp COMMA  &kp DOT    &kp P      &kp Y        &kp F      &kp G      &kp C      &kp R      &kp L      NOP
       NOP  HL( A      ,   O      ,   E      ,   U   )  &kp I        &kp D      HR( H      ,   T      ,   N      ,   S   )  NOP
       NOP  &kp SEMI   &kp Q      &kp J      &kp K      &kp X        &kp B      &kp M      &kp W      &kp V      &kp Z      NOP
-      /*                     */  &kp ESC    NAV_SPACE  FN_TAB       NUM_RET    &kp BSPC   &kp FSLH                       >; };
+      /*                     */  &kp ESC    NAV_BSPC   FN_TAB       NUM_RET    &kp SPACE  &kp FSLH                       >; };
 
       NUM { display-name="num"; bindings = <
       NOP  &kp GRAVE  &kp TILDE  &kp BSLH   &kp PIPE   &kp FSLH     &LPLT      &kp N7     &kp N8     &kp N9     &RPGT      NOP
