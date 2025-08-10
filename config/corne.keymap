@@ -81,7 +81,7 @@
 #define STN  4
 
 #define NAV_SPACE &ltb NAV SPACE
-#define NAV_BSPC  &ltb NAV SPACE
+#define NAV_BSPC  &ltb NAV BSPC
 // #define NUM_TAB   &ltb NUM TAB
 #define FN_TAB    &ltb FN  TAB
 #define NUM_RET   &ltb NUM RET
