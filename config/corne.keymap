@@ -13,7 +13,7 @@
 │     │     │     │     │     │ │     │     │     │     │     │
 ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
             │ ESC │BSPC │ TAB │ │ RET │SPACE│ / ? │
-            │     │ NAV │ FN  │ │ NUM │     │     │
+            │ NAV │ FN  │     │ │     │ NUM │     │
             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
 ╭─────┬─────┬─────┬─────┬────L1:NUM───┬─────┬─────┬─────┬─────╮
 │  `  │  ~  │  \  │  |  │  /  │ │ ( < │ 7 & │ 8 * │  9  │ ) > │
@@ -25,7 +25,7 @@
 │ ... │RCTL │MENU │ ... │ ... │ │ - _ │ 1 ! │ 2 @ │ 3 # │ = + │
 │     │     │     │     │     │ │     │     │     │     │     │
 ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
-            │ TOG │ ... │ ... │ │ TOG │ ... │  0  │
+            │     │     │ NUM │ │     │BASE │  0  │
             │     │     │     │ │     │     │     │
             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
 ╭─────┬─────┬─────┬─────┬────L2:FN────┬─────┬─────┬─────┬─────╮
@@ -38,7 +38,7 @@
 │MUTE │ VDN │ VUP │ ... │RESET│ │RESET│F1 B1│F2 B2│F3 B3│ F10 │
 │     │     │     │     │     │ │     │     │     │     │     │
 ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
-            │ TOG │ ... │ TOG │ │ F10 │ F11 │ F12 │ ↑ GUI for
+            │     │BASE │     │ │ FN  │     │     │ ↑ GUI for
             │     │     │     │ │     │     │     │ B* (BT)
             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
 ╭─────┬─────┬─────┬─────┬────L3:NAV───┬─────┬─────┬─────┬─────╮
@@ -51,7 +51,7 @@
 │ ... │ ... │ ... │ ... │ ... │ │HOME │ PG↓ │ PG↑ │ END │LA(↓)│
 │     │     │     │     │     │ │     │     │     │     │     │
 ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
-            │ TOG │ TOG │ ... │ │ ... │LGTAB│ ... │
+            │BASE │     │     │ │ NAV │LGTAB│     │
             │     │     │     │ │     │     │     │
             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
 ╭─────┬─────┬─────┬─────┬────L4:STN───┬─────┬─────┬─────┬─────╮
@@ -80,11 +80,15 @@
 #define NAV  3
 #define STN  4
 
-#define NAV_SPACE &ltb NAV SPACE
-#define NAV_BSPC  &ltb NAV BSPC
+#define NAV_ESC &ltb   NAV ESC
+#define FN_BSPC &ltb   FN BSPC
+#define NUM_SPACE &ltb NUM SPACE
+
+// #define NAV_SPACE &ltb NAV SPACE
+// #define NAV_BSPC  &ltb NAV BSPC
 // #define NUM_TAB   &ltb NUM TAB
-#define FN_TAB    &ltb FN  TAB
-#define NUM_RET   &ltb NUM RET
+// #define FN_TAB    &ltb FN  TAB
+// #define NUM_RET   &ltb NUM RET
 // #define FN_BSPC   &ltb FN  BSPC
 
 #define VMUTE &kp C_MUTE
@@ -210,25 +214,25 @@
       NOP  &kp APOS   &kp COMMA  &kp DOT    &kp P      &kp Y        &kp F      &kp G      &kp C      &kp R      &kp L      NOP
       NOP  HL( A      ,   O      ,   E      ,   U   )  &kp I        &kp D      HR( H      ,   T      ,   N      ,   S   )  NOP
       NOP  &kp SEMI   &kp Q      &kp J      &kp K      &kp X        &kp B      &kp M      &kp W      &kp V      &kp Z      NOP
-      /*                     */  &kp ESC    NAV_BSPC   FN_TAB       NUM_RET    &kp SPACE  &kp FSLH                       >; };
+      /*                     */  NAV_ESC    FN_BSPC    &kp TAB      &kp RET    NUM_SPACE  &kp FSLH                       >; };
 
       NUM { display-name="num"; bindings = <
       NOP  &kp GRAVE  &kp TILDE  &kp BSLH   &kp PIPE   &kp FSLH     &LPLT      &kp N7     &kp N8     &kp N9     &RPGT      NOP
       NOP  &kp LSHFT  &kp LCTRL  &kp LGUI   &kp LALT   &kp COLON    &kp LBKT   &kp N4     &kp N5     &kp N6     &kp RBKT   NOP
       NOP  NOP        &kp RCTRL  &kp K_APP  NOP        NOP          &kp MINUS  &kp N1     &kp N2     &kp N3     &kp EQUAL  NOP
-      /*                     */  &tog NUM   NOP        NOP          &tog NUM   NOP        &kp N0                         >; };
+      /*                     */  &trans     &trans     &to NUM      &trans     &to BASE   &kp N0                         >; };
 
     FN { display-name="fn"; bindings = <
       NOP  PREV       PP         NEXT       BRIDN      BRIUP        &kp INS    &F7BTP     &F8BTN     &kp F9    &kp F12    NOP
       NOP  &kp LSHFT  &kp LCTRL  &kp LGUI   &kp LALT   &kp PSCRN    &kp DEL    &FBT4      &FBT5      &F6BTC    &kp F11    NOP
       NOP  VMUTE      VOLDN      VOLUP      NOP        &sys_reset   &sys_reset &FBT1      &FBT2      &FBT3     &kp F10    NOP
-      /*                     */  &tog FN    NOP        &tog FN      NOP        NOP        NOP                            >; };
+      /*                     */  &trans     &to BASE   &trans       &to FN     &trans     &trans                         >; };
 
     NAV { display-name="nav"; bindings = <
       NOP  &kp LG(N1) &kp LG(N2) &kp LG(N3) &kp LG(N4) &kp LG(N5)   &kp LG(N6) &kp LG(N7) &kp LG(N8) &kp LG(N9) &kp LG(N0) NOP
       NOP  &kp LSHFT  &kp LCTRL  &kp LGUI   &kp LALT   &to STN      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp LA(UP) NOP
       NOP  NOP        NOP        NOP        NOP        NOP          &kp HOME   &kp PGDN   &kp PGUP   &kp END  &kp LA(DOWN) NOP
-      /*                     */  &tog NAV   &tog NAV   NOP          NOP        &kp LG(TAB) NOP                           >; };
+      /*                     */  &to BASE   &trans     &trans       &to NAV    &trans      NOP                           >; };
 
     STN { display-name="stn"; bindings = <
       NOP  &kp T      &kp Q      &kp W      &kp E      &kp R        &kp U      &kp I      &kp O      &kp P      &kp LBKT   NOP
