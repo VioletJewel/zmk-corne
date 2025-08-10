@@ -99,27 +99,8 @@
 #define HL(k1,k2,k3,k4) &hml LSHFT k1  &hml LCTRL k2  &hml LGUI k3  &hml LALT k4
 #define HR(k1,k2,k3,k4) &hmr LALT k1  &hmr LGUI k2  &hmr LCTRL k3  &hmr LSHFT k4
 
-#define MTL(layer) &mtl layer layer
-
 / {
   behaviors {
-    mtl: momentary_toggle_layer {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "hold-preferred";
-        tapping-term-ms = <200>;
-        bindings = <&mo>, <&tog>;
-    };
-    /* tog: layer_toggle_balanced {
-      compatible = "zmk,behavior-hold-tap";
-      #binding-cells = <2>;
-      flavor = "balanced";
-      require-prior-idle-ms = <50>;
-      tapping-term-ms = <170>;
-      quick-tap-ms = <100>;
-      bindings = <&mo>, <&tog>;
-      hold-trigger-on-release;
-    }; */
     ltb: layer_tap_balanced {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -152,6 +133,18 @@
       bindings = <&kp>, <&kp>;
       hold-trigger-key-positions = <LKEYS>;
       hold-trigger-on-release;
+    };
+    LPLT: morph_LPAR_LT {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp LPAR>, <&kp LT>;
+      mods = <(MOD_LGUI)>;
+    };
+    RPGT: morph_RPAR_GT {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp RPAR>, <&kp GT>;
+      mods = <(MOD_LGUI)>;
     };
     FBT1: morph_F_BT_1 {
       compatible = "zmk,behavior-mod-morph";
@@ -210,13 +203,13 @@
       NOP  &kp SEMI   &kp Q      &kp J      &kp K      &kp X        &kp B      &kp M      &kp W      &kp V      &kp Z      NOP
       /*                     */  &kp ESC    NAV_SPACE  FN_TAB       NUM_RET    &kp BSPC   &kp FSLH                       >; };
 
-      NUM { display-name="num"; bindings = < /* TODO: add <> for shifted () */
-      NOP  &kp GRAVE  &kp TILDE  &kp BSLH   &kp PIPE   &kp FSLH     &kp LPAR   &kp N7     &kp N8     &kp N9     &kp RPAR   NOP
+      NUM { display-name="num"; bindings = <
+      NOP  &kp GRAVE  &kp TILDE  &kp BSLH   &kp PIPE   &kp FSLH     &LPLT      &kp N7     &kp N8     &kp N9     &RPGT      NOP
       NOP  &kp LSHFT  &kp LCTRL  &kp LGUI   &kp LALT   &kp COLON    &kp LBKT   &kp N4     &kp N5     &kp N6     &kp RBKT   NOP
       NOP  NOP        &kp RCTRL  &kp K_APP  NOP        NOP          &kp MINUS  &kp N1     &kp N2     &kp N3     &kp EQUAL  NOP
       /*                     */  &tog NUM   NOP        NOP          &tog NUM   NOP        &kp N0                         >; };
 
-    FN { display-name="fn"; bindings = < /* TODO: add BT1-BT5,BTC,BTP,BTN for LGUI+F1-F5,LGUI+F6,LGUI+F7,LGUI+F8 */
+    FN { display-name="fn"; bindings = <
       NOP  PREV       PP         NEXT       BRIDN      BRIUP        &kp INS    &F7BTP     &F8BTN     &kp F9    &kp F12    NOP
       NOP  &kp LSHFT  &kp LCTRL  &kp LGUI   &kp LALT   &kp PSCRN    &kp DEL    &FBT4      &FBT5      &F6BTC    &kp F11    NOP
       NOP  VMUTE      VOLDN      VOLUP      NOP        &sys_reset   &sys_reset &FBT1      &FBT2      &FBT3     &kp F10    NOP
@@ -232,7 +225,7 @@
       NOP  NOP        &kp Q      &kp W      &kp E      &kp R        &kp U      &kp I      &kp O      &kp P      &kp LBKT   NOP
       NOP  NOP        &kp A      &kp S      &kp D      &kp F        &kp J      &kp K      &kp L      &kp SEMI   &kp APOS   NOP
       NOP  NOP        NOP        &kp T      &kp T      &kp T        &kp Y      &kp Y      &kp Y      NOP        NOP        NOP
-      /*                     */  &kp C      &kp V      MTL(BASE)    &kp Y      &kp N      &kp M                          >; };
+      /*                     */  &kp C      &kp V      &to BASE     &kp Y      &kp N      &kp M                          >; };
   };
 };
 /* vim: set list tw=128 cc=+0: */
