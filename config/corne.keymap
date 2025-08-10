@@ -156,31 +156,31 @@
     FBT1: morph_F_BT_1 {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&kp F1>, <&bt BT_SEL 1>;
+      bindings = <&kp F1>, <&bt BT_SEL 0>;
       mods = <(MOD_LGUI)>;
     };
     FBT2: morph_F_BT_2 {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&kp F2>, <&bt BT_SEL 2>;
+      bindings = <&kp F2>, <&bt BT_SEL 1>;
       mods = <(MOD_LGUI)>;
     };
     FBT3: morph_F_BT_3 {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&kp F3>, <&bt BT_SEL 3>;
+      bindings = <&kp F3>, <&bt BT_SEL 2>;
       mods = <(MOD_LGUI)>;
     };
     FBT4: morph_F_BT_4 {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&kp F4>, <&bt BT_SEL 4>;
+      bindings = <&kp F4>, <&bt BT_SEL 3>;
       mods = <(MOD_LGUI)>;
     };
     FBT5: morph_F_BT_5 {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&kp F5>, <&bt BT_SEL 5>;
+      bindings = <&kp F5>, <&bt BT_SEL 4>;
       mods = <(MOD_LGUI)>;
     };
     F6BTC: morph_F6_BTC {
