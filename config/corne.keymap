@@ -175,7 +175,7 @@
       /*                     */  &tog FN    NOP        &tog FN      NOP        NOP        NOP                            >; };
 
     NAV { display-name="nav"; bindings = <
-      NOP  &kp LG(1)  &kp LG(2)  &kp LG(3)  &kp LG(4)  &kp LG(5)    &kp LG(6)  &kp LG(7)  &kp LG(8)  &kp LG(9)  &kp LG(0)  NOP
+      NOP  &kp LG(N1) &kp LG(N2) &kp LG(N3) &kp LG(N4) &kp LG(N5)   &kp LG(N6) &kp LG(N7) &kp LG(N8) &kp LG(N9) &kp LG(N0) NOP
       NOP  &kp LSHFT  &kp LCTRL  &kp LGUI   &kp LALT   &to STN      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp LA(UP) NOP
       NOP  NOP        NOP        NOP        NOP        NOP          &kp HOME   &kp PGDN   &kp PGUP   &kp END  &kp LA(DOWN) NOP
       /*                     */  &tog NAV   &tog NAV   NOP          NOP        &kp LG(TAB) NOP                           >; };
