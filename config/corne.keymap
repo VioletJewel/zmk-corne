@@ -153,6 +153,54 @@
       hold-trigger-key-positions = <LKEYS>;
       hold-trigger-on-release;
     };
+    FBT1: morph_F_BT_1 {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp F1>, <&bt BT_SEL 1>;
+      mods = <(MOD_LGUI)>;
+    };
+    FBT2: morph_F_BT_2 {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp F2>, <&bt BT_SEL 2>;
+      mods = <(MOD_LGUI)>;
+    };
+    FBT3: morph_F_BT_3 {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp F3>, <&bt BT_SEL 3>;
+      mods = <(MOD_LGUI)>;
+    };
+    FBT4: morph_F_BT_4 {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp F4>, <&bt BT_SEL 4>;
+      mods = <(MOD_LGUI)>;
+    };
+    FBT5: morph_F_BT_5 {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp F5>, <&bt BT_SEL 5>;
+      mods = <(MOD_LGUI)>;
+    };
+    F6BTC: morph_F6_BTC {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp F6>, <&bt BT_CLR>;
+      mods = <(MOD_LGUI)>;
+    };
+    F7BTN: morph_F7_BTN {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp F7>, <&bt BT_PRV>;
+      mods = <(MOD_LGUI)>;
+    };
+    F8BTN: morph_F8_BTN {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp F8>, <&bt BT_NXT>;
+      mods = <(MOD_LGUI)>;
+    };
   };
   keymap { compatible = "zmk,keymap";
 
@@ -169,9 +217,9 @@
       /*                     */  &tog NUM   NOP        NOP          &tog NUM   NOP        &kp N0                         >; };
 
     FN { display-name="fn"; bindings = < /* TODO: add BT1-BT5,BTC,BTP,BTN for LGUI+F1-F5,LGUI+F6,LGUI+F7,LGUI+F8 */
-      NOP  PREV       PP         NEXT       BRIDN      BRIUP        &kp INS    &kp F7     &kp F8     &kp F9     &kp F12    NOP
-      NOP  &kp LSHFT  &kp LCTRL  &kp LGUI   &kp LALT   &kp PSCRN    &kp DEL    &kp F4     &kp F5     &kp F6     &kp F11    NOP
-      NOP  VMUTE      VOLDN      VOLUP      NOP        &sys_reset   &sys_reset &kp F1     &kp F2     &kp F3     &kp F10    NOP
+      NOP  PREV       PP         NEXT       BRIDN      BRIUP        &kp INS    &F7BTP     &F8BTN     &kp F9    &kp F12    NOP
+      NOP  &kp LSHFT  &kp LCTRL  &kp LGUI   &kp LALT   &kp PSCRN    &kp DEL    &FBT4      &FBT5      &F6BTC    &kp F11    NOP
+      NOP  VMUTE      VOLDN      VOLUP      NOP        &sys_reset   &sys_reset &FBT1      &FBT2      &FBT3     &kp F10    NOP
       /*                     */  &tog FN    NOP        &tog FN      NOP        NOP        NOP                            >; };
 
     NAV { display-name="nav"; bindings = <
