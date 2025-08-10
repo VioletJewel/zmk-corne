@@ -2,80 +2,74 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-/************************* BASE (L0) **************************
-╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+/*────┬─────┬─────┬─────┬────L0:BASE──┬─────┬─────┬─────┬─────╮
 │ ' " │ , < │ . > │ p P │ y Y │ │ f F │ g G │ c C │ r R │ l L │
 │     │     │     │     │     │ │     │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
 │ a A │ o O │ e E │ u U │ i I │ │ d D │ h H │ t T │ n N │ s S │
-│     │     │     │     │     │ │     │     │     │     │     │
+│ SHF │ CTL │ GUI │ ALT │     │ │     │ ALT │ GUI │ CTL │ SHF │
 ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
 │ ; : │ q Q │ j J │ k K │ x X │ │ b B │ m M │ w W │ v V │ z Z │
-│ SHF │ CTL │ GUI │ ALT │     │ │     │ ALT │ GUI │ CTL │ SHF │
+│     │     │     │     │     │ │     │     │     │     │     │
 ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
-            │BSPC │ RET │ ESC │ │ SYM │SPACE│ TAB │
-            │     │     │ NAV │ │ SYM │     │     │
+            │ ESC │SPACE│ TAB │ │ RET │BSPC │ / ? │
+            │     │ NAV │ FN  │ │ NUM │     │     │
             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
-
-************************** NUM (L1) ***************************
-╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
-│     │RCTL │MENU │     │     │ │ ( < │ 7 & │ 8 * │  9  │ ) > │
+╭─────┬─────┬─────┬─────┬────L1:NUM───┬─────┬─────┬─────┬─────╮
+│  `  │  ~  │  \  │  |  │  /  │ │ ( < │ 7 & │ 8 * │  9  │ ) > │
 │     │     │     │     │     │ │     │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
-│  `  │  ~  │  \  │  |  │  /  │ │ [ { │ 4 $ │ 5 % │ 6 ^ │ ] } │
+│ SHF │ CTL │ GUI │ ALT │  :  │ │ [ { │ 4 $ │ 5 % │ 6 ^ │ ] } │
 │     │     │     │     │     │ │     │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │  ?  │ │ - _ │ 1 ! │ 2 @ │ 3 # │ = + │
-│ SHF │ CTL │ GUI │ ALT │     │ │     │     │     │     │     │
+│ ... │RCTL │MENU │ ... │ ... │ │ - _ │ 1 ! │ 2 @ │ 3 # │ = + │
+│     │     │     │     │     │ │     │     │     │     │     │
 ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
-            │     │ FN  │ NAV │ │ @@@ │     │     │
-            │     │ FN  │ NAV │ │     │     │     │
+            │ TOG │ ... │ ... │ │ TOG │ ... │  0  │
+            │     │     │     │ │     │     │     │
             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
-
-************************** FN  (L2) ***************************
-╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
-│     │BRDN │BRUP │     │     │ │PSCRN│F7 BP│F8 BN│F9   │ F12 │
+╭─────┬─────┬─────┬─────┬────L2:FN────┬─────┬─────┬─────┬─────╮
+│PREV │ PP  │NEXT │BRIDN│BRIUP│ │ INS │F7 BP│F8 BN│F9   │ F12 │
 │     │     │     │     │     │ │     │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
-│MUTE │ VDN │ VUP │     │     │ │ INS │F4 B4│F5 B5│F6 BC│ F11 │
+│ SHF │ CTL │ GUI │ ALT │PSCRN│ │ DEL │F4 B4│F5 B5│F6 BC│ F11 │
 │     │     │     │     │     │ │     │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │ STG │ │ DEL │F1 B1│F2 B2│F3 B3│ F10 │
-│ SHF │ CTL │ GUI │ ALT │     │ │     │     │     │     │     │
+│MUTE │ VDN │ VUP │ ... │RESET│ │RESET│F1 B1│F2 B2│F3 B3│ F10 │
+│     │     │     │     │     │ │     │     │     │     │     │
 ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
-            │RESET│ @@@ │BOOTL│ │ @@@ │BOOTL│RESET│ ↑ GUI for
+            │ TOG │ ... │ TOG │ │ F10 │ F11 │ F12 │ ↑ GUI for
             │     │     │     │ │     │     │     │ B* (BT)
             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
-
-************************** NAV (L3) ***************************
-╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+╭─────┬─────┬─────┬─────┬────L3:NAV───┬─────┬─────┬─────┬─────╮
 │LG(1)│LG(2)│LG(3)│LG(4)│LG(5)│ │LG(6)│LG(7)│LG(8)│LG(9)│LG(0)│
 │     │     │     │     │     │ │     │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │ │LEFT │DOWN │ UP  │RIGHT│     │
+│ SHF │ CTL │ GUI │ ALT │ STN │ │  ←  │  ↓  │  ↑  │  →  │LA(↑)│
 │     │     │     │     │     │ │     │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │ │HOME │PGDN │PGUP │ END │     │
-│ SHF │ CTL │ GUI │ ALT │     │ │     │     │     │     │     │
+│ ... │ ... │ ... │ ... │ ... │ │HOME │ PG↓ │ PG↑ │ END │LA(↓)│
+│     │     │     │     │     │ │     │     │     │     │     │
 ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
-            │     │     │     │ │     │     │     │
+            │ TOG │ TOG │ ... │ │ ... │LGTAB│ ... │
             │     │     │     │ │     │     │     │
             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
-
-************************** STN (L4) ***************************
-╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
-│ @@@ │  #  │  t  │  p  │  h  │ │  f  │  p  │  l  │  t  │  d  │
+╭─────┬─────┬─────┬─────┬────L4:STN───┬─────┬─────┬─────┬─────╮
+│ ... │  #  │  t  │  p  │  h  │ │  f  │  p  │  l  │  t  │  d  │
 │     │     │     │     │     │ │     │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
-│ @@@ │  s  │  k  │  w  │  r  │ │  r  │  b  │  g  │  s  │  z  │
+│ ... │  s  │  k  │  w  │  r  │ │  r  │  b  │  g  │  s  │  z  │
 │     │     │     │     │     │ │     │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┤
-│ @@@ │ @@@ │  *  │  *  │  *  │ │  *  │  *  │  *  │ @@@ │ @@@ │
+│ ... │ ... │  *  │  *  │  *  │ │  *  │  *  │  *  │ ... │ ... │
 │     │     │     │     │     │ │     │     │     │     │     │
 ╰─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────╯
             │  a  │  o  │ LV0 │ │  *  │  e  │  u  │
             │     │     │     │ │     │     │     │
-            ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯          */
+            ╰─────┴─────┴─────╯ ╰─────┴─────┴────*/
+
+#define NOP &none
+#define __ &trans
 
 #define LKEYS  1  2  3  4  5  13 14 15 16 17  25 26 27 28 29  36 37 38
 #define RKEYS  6  7  8  9 10  18 19 20 21 22  30 31 32 33 34  39 40 41
@@ -84,23 +78,59 @@
 #define NUM  1
 #define FN   2
 #define NAV  3
-#define STG  4
+#define STN  4
+
+#define NAV_SPACE &ltb NAV SPACE
+// #define NUM_TAB   &ltb NUM TAB
+#define FN_TAB    &ltb FN  TAB
+#define NUM_RET   &ltb NUM RET
+// #define FN_BSPC   &ltb FN  BSPC
+
+#define VMUTE &kp C_MUTE
+#define VOLDN &kp C_VOL_DN
+#define VOLUP &kp C_VOL_UP
+#define BRIDN &kp C_BRI_DN
+#define BRIUP &kp C_BRI_UP
+#define PREV  &kp C_PREV
+#define PP    &kp C_PP
+#define NEXT  &kp C_NEXT
+
 
 #define HL(k1,k2,k3,k4) &hml LSHFT k1  &hml LCTRL k2  &hml LGUI k3  &hml LALT k4
 #define HR(k1,k2,k3,k4) &hmr LALT k1  &hmr LGUI k2  &hmr LCTRL k3  &hmr LSHFT k4
 
-#define MT(layer) &mo_tog layer layer
+#define MTL(layer) &mtl layer layer
 
 / {
   behaviors {
-    mo_tog: behavior_mo_tog {
+    mtl: momentary_toggle_layer {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "hold-preferred";
+        tapping-term-ms = <200>;
+        bindings = <&mo>, <&tog>;
+    };
+    ltb: layer_toggle_balanced {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
-      flavor = "hold-preferred";
-      tapping-term-ms = <200>;
+      flavor = "balanced";
+      require-prior-idle-ms = <50>;
+      tapping-term-ms = <170>;
+      quick-tap-ms = <100>;
       bindings = <&mo>, <&tog>;
+      hold-trigger-on-release;
     };
-
+    ltb: layer_tap_balanced {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      flavor = "balanced";
+      require-prior-idle-ms = <50>;
+      tapping-term-ms = <170>;
+      quick-tap-ms = <100>;
+      bindings = <&mo>, <&kp>;
+      display-name = "Layer-Tap";
+      hold-trigger-on-release;
+    };
     hml: home_row_mod_left {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -123,62 +153,38 @@
       hold-trigger-key-positions = <LKEYS>;
       hold-trigger-on-release;
     };
-
   };
+  keymap { compatible = "zmk,keymap";
 
-  keymap {
-    compatible = "zmk,keymap";
+    BASE { display-name="base"; bindings = <
+      NOP  &kp APOS   &kp COMMA  &kp DOT    &kp P      &kp Y        &kp F      &kp G      &kp C      &kp R      &kp L      NOP
+      NOP  HL( A      ,   O      ,   E      ,   U   )  &kp I        &kp D      HR( H      ,   T      ,   N      ,   S   )  NOP
+      NOP  &kp SEMI   &kp Q      &kp J      &kp K      &kp X        &kp B      &kp M      &kp W      &kp V      &kp Z      NOP
+      /*                     */  &kp ESC    NAV_SPACE  FN_TAB       NUM_RET    &kp BSPC   &kp FSLH                       >; };
 
-    BASE {
-      display-name = "base";
-      bindings = <
-        &none     &kp APOS  &kp COMMA &kp DOT   &kp P     &kp Y       &kp F     &kp G     &kp C     &kp R     &kp L     &none
-        &none     &kp A     &kp O     &kp E     &kp U     &kp I       &kp D     &kp H     &kp T     &kp N     &kp S     &none
-        &none     HL( SEMI  ,   Q     ,   J     ,   K )   &kp X       &kp B     HR( M     ,   W     ,   V     ,   Z )   &none
-                                      &kp BSPC  &kp RET   &mt NAV ESC MT(NUM)   &kp SPACE &kp TAB
-      >;
-    };
+      NUM { display-name="num"; bindings = < /* TODO: add <> for shifted () */
+      NOP  &kp GRAVE  &kp TILDE  &kp BSLH   &kp PIPE   &kp FSLH     &kp LPAR   &kp N7     &kp N8     &kp N9     &kp RPAR   NOP
+      NOP  &kp LSHFT  &kp LCTRL  &kp LGUI   &kp LALT   &kp COLON    &kp LBKT   &kp N4     &kp N5     &kp N6     &kp RBKT   NOP
+      NOP  NOP        &kp RCTRL  &kp K_APP  NOP        NOP          &kp MINUS  &kp N1     &kp N2     &kp N3     &kp EQUAL  NOP
+      /*                     */  &tog NUM   NOP        NOP          &tog NUM   NOP        &kp N0                         >; };
 
-    NUM {
-      display-name = "num"; // TODO: add <> for shifted ()
-      bindings = <
-        &none     &none     &kp RCTRL &kp K_APP &none     &none       &kp LPAR  &kp N7    &kp N8    &kp N9    &kp RPAR  &none
-        &none     &kp GRAVE &kp TILDE &kp BSLH  &kp PIPE  &kp FSLH    &kp LBKT  &kp N4    &kp N5    &kp N6    &kp RBKT  &none
-        &none     &kp LSHFT &kp LCTRL &kp LGUI  &kp LALT  &none       &kp MINUS &kp N1    &kp N2    &kp N3    &kp EQUAL &none
-                                      &trans    MT(FN)    MT(NAV)     &none     &kp N0    &trans
-      >;
-    };
+    FN { display-name="fn"; bindings = < /* TODO: add BT1-BT5,BTC,BTP,BTN for LGUI+F1-F5,LGUI+F6,LGUI+F7,LGUI+F8 */
+      NOP  PREV       PP         NEXT       BRIDN      BRIUP        &kp INS    &kp F7     &kp F8     &kp F9     &kp F12    NOP
+      NOP  &kp LSHFT  &kp LCTRL  &kp LGUI   &kp LALT   &kp PSCRN    &kp DEL    &kp F4     &kp F5     &kp F6     &kp F11    NOP
+      NOP  VMUTE      VOLDN      VOLUP      NOP        &sys_reset   &sys_reset &kp F1     &kp F2     &kp F3     &kp F10    NOP
+      /*                     */  &tog FN    NOP        &tog FN      NOP        NOP        NOP                            >; };
 
-    FN {
-      display-name = "fn"; // TODO: add BT1-BT5,BTC,BTP,BTN for LGUI+F1-F5,LGUI+F6,LGUI+F7,LGUI+F8
-      bindings = <
-        &none    &none &kp C_BRI_DN &kp C_BRI_UP &none    &none       &kp PSCRN &kp F7    &kp F8    &kp F9    &kp F12   &none
-        &none &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none  &none       &kp INS   &kp F4    &kp F5    &kp F6    &kp F11   &none
-        &none     &kp LSHFT &kp LCTRL &kp LGUI  &kp LALT  &to STG     &kp DEL   &kp F1    &kp F2    &kp F3    &kp F10   &none
-                                     &sys_reset &none &bootloader     &none &bootloader &sys_reset
-      >;
-    };
+    NAV { display-name="nav"; bindings = <
+      NOP  &kp LG(1)  &kp LG(2)  &kp LG(3)  &kp LG(4)  &kp LG(5)    &kp LG(6)  &kp LG(7)  &kp LG(8)  &kp LG(9)  &kp LG(0)  NOP
+      NOP  &kp LSHFT  &kp LCTRL  &kp LGUI   &kp LALT   &to STN      &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp LA(UP) NOP
+      NOP  NOP        NOP        NOP        NOP        NOP          &kp HOME   &kp PGDN   &kp PGUP   &kp END  &kp LA(DOWN) NOP
+      /*                     */  &tog NAV   &tog NAV   NOP          NOP        &kp LG(TAB) NOP                           >; };
 
-    NAV {
-      display-name = "nav";
-      bindings = <
-        &none     &kp LG(1) &kp LG(2) &kp LG(3) &kp LG(4) &kp LG(5)   &kp LG(6) &kp LG(7) &kp LG(8) &kp LG(9) &kp LG(0) &none
-        &none     &none     &none     &none     &none     &none       &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &none     &none
-        &none     &kp LSHFT &kp LCTRL &kp LGUI  &kp LALT  &none       &kp HOME  &kp PGDN  &kp PGUP  &kp END   &none     &none
-                                      &none     &none     &none       &none     &none     &none 
-      >;
-    };
-
-    STN {
-      display-name = "stn";
-      bindings = <
-        &none     &none     &kp HASH  &kp T     &kp P     &kp H       &kp F       &kp P     &kp L     &kp T   &kp D     &none
-        &none     &none     &kp S     &kp K     &kp W     &kp R       &kp R       &kp B     &kp G     &kp S   &kp Z     &none
-        &none     &none     &none     &kp STAR  &kp STAR  &kp STAR    &kp STAR    &kp STAR  &kp STAR  &none   &none     &none
-                                      &kp A     &kp O     &to BASE    &kp STAR    &kp E     &kp U
-      >;
-    };
+    STN { display-name="stn"; bindings = <
+      NOP  NOP        &kp HASH   &kp T      &kp P      &kp H        &kp F      &kp P      &kp L      &kp T      &kp D      NOP
+      NOP  NOP        &kp S      &kp K      &kp W      &kp R        &kp R      &kp B      &kp G      &kp S      &kp Z      NOP
+      NOP  NOP        NOP        &kp STAR   &kp STAR   &kp STAR     &kp STAR   &kp STAR   &kp STAR   NOP        NOP        NOP
+      /*                     */  &kp A      &kp O      MTL(BASE)    &kp STAR   &kp E      &kp U                          >; };
   };
 };
-
-/* vim: set list tw=140: */
+/* vim: set list tw=128 cc=+0: */
