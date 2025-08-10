@@ -138,13 +138,13 @@
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&kp LPAR>, <&kp LT>;
-      mods = <(MOD_LGUI)>;
+      mods = <(MOD_LSFT)>;
     };
     RPGT: morph_RPAR_GT {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&kp RPAR>, <&kp GT>;
-      mods = <(MOD_LGUI)>;
+      mods = <(MOD_LSFT)>;
     };
     FBT1: morph_F_BT_1 {
       compatible = "zmk,behavior-mod-morph";
